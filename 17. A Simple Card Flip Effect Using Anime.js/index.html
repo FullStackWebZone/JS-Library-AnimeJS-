@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	
+	</head>
+	<body>
+		<div class="card-container">
+  <div class="card">
+    <div class="front">
+      A
+    </div>
+    <div class="back">
+      B
+    </div>
+  </div>
+</div>
+		<script src="anime.min.js"></script>
+		<script type="text/javascript">
+			var card = document.querySelector(".card");
+var playing = false;
+
+card.addEventListener('click',function() {
+  if(playing)
+    return;
+  
+  playing = true;
+  anime({
+    targets: card,
+    scale: [{value: 1}, {value: 1.4}, {value: 1, delay: 250}],
+    rotateY: {value: '+=180', delay: 200},
+    easing: 'easeInOutSine',
+    duration: 400,
+    complete: function(anim){
+       playing = false;
+    }
+  });
+});
+
+		</script>
+	</body>
+</html>
